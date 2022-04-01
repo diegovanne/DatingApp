@@ -1,0 +1,35 @@
+1/ định nghĩa entity framework
+- entity framework là ORM, công việc của nó là dịch code sang sql command để update data trong db.
+
+2/ lịch sử của framework xưa cũ (ado.net)
+- ngày xưa thời dotnet 3.5 release từ thời 2002, thì sẽ viết một cái framework là ado dot net để lưu và lấy data từ db.
+- đầu tiên là mở connection, tạo ra data set để fetch hoặc submit data sau đó convert data từ data set thành dot net objects.
+- điều này dễ gây ra lỗi bởi vì sẽ viết code để access db dưới dạng string.
+- Microsoft nhận ra điều này và thay đổi, tạo ra một cái framework tên là entity framework để tự động hóa tất cả các hoạt động như update, xóa, add vào db.
+
+3/ db context
+- class này có vai trò như cây cầu nối giữa entity class và db.
+- class này là class chủ yếu sẽ được sử dụng để tương tác với db.
+- đại diện cho session khi tương tác với db, dùng để query và lưu thực thể của entities.
+- là sự kết hợp giữa Unit of Work và Repository patterns
+
+4/ đặc điểm của entity framework
+- entity giúp chúng ta viết linq 
+- nó work với db provider
+
+5/ SQLite
+- ko cần phải install db server
+- nó work theo kiểu là một cái file để lưu data cho db
+- là cross-platform trong khi sql server thì work trên windows
+- sql lite provider hay db provider sẽ dịch linq thành câu lệnh SQL
+
+6/ features của ef
+- query db bằng linq
+- change tracking, track sự thay đổi trong entity mà sẽ submit lên db
+- saving to db (execute insert, update, delete...) - db context class có các chức năng của savechanges
+- concurrency
+- transactions
+- caching
+- built-in conventions
+- configuration
+- migrations
